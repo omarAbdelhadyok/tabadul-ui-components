@@ -1,0 +1,34 @@
+<div>
+    <q-input outlined
+        :label="label"
+        :prefix="prefix"
+        :suffix="suffix"
+        :mask="mask"
+        :hint="hint"
+        :hide-hint="hideHint"
+        :counter="counter"
+        :debounce="debounce"
+        :unmasked-value="unmaskedValue"
+        :maxlength="maxlength"
+        :disable="disable"
+        :readonly="readonly"
+        :model-value="modelValue"
+        :error="errors[0]? true : false"
+        :error-message="errors[0]? t(errors[0].$message) : null"
+        @update:model-value="updateModelValue"
+        @clear="clear"
+        @focus="focus"
+        @blur="blur">
+
+        <template v-if="iconName" v-slot:prepend>
+            <q-icon :name="iconName" />
+        </template>
+
+        <template v-if="modelValue" v-slot:append>
+            <q-icon name="cancel"
+                class="cursor-pointer"
+                @click.stop="updateModelValue('')">
+            </q-icon>
+        </template>
+    </q-input>
+</div>
